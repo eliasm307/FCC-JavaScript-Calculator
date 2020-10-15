@@ -1,0 +1,15 @@
+// import bootstrap
+@import "~bootstrap/scss/bootstrap";
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+
+//for development
+.col,
+.row,
+.container {
+  border: 0.5px solid red;
+}

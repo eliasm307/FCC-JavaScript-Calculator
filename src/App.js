@@ -10,17 +10,8 @@ import "./global-styles.scss";
 const date = new Date();
 
 const numberButtons = [
-  {
-    id: "decimal",
-    keyCode: 0,
-    value: ".",
-  },
-  {
-    id: "zero",
-    keyCode: 0,
-    value: "0",
-    
-  }, 
+  
+  
   {
     id: "one",
     keyCode: 0,
@@ -65,7 +56,18 @@ const numberButtons = [
     id: "nine",
     keyCode: 0,
     value: "9",
-  }
+  },
+  {
+    id: "zero",
+    keyCode: 0,
+    value: "0",
+    colWidth: 8 
+  }, 
+  {
+    id: "decimal",
+    keyCode: 0,
+    value: "." 
+  },
 ];
 
 const controlButtons = [
@@ -96,6 +98,7 @@ const controlButtons = [
     id: "clear",
     keyCode: 0,
     value: "C",
+    colWidth: 12
     
   }
 ];

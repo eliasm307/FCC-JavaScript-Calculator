@@ -7,7 +7,7 @@ import { Row, Col } from "react-bootstrap";
 import "./CalculatorSection.scss";
 
 const CalculatorSection = ({ numberButtons, controlButtons, className, ...restProps }) => {
-  console.log("CalculatorSection: Start");
+  // console.log("CalculatorSection: Start");
 
   // let numberButtonsJSX = React.useRef([]) 
   // let controlButtonsJSX = React.useRef([]) 
@@ -15,9 +15,36 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, ...restPr
   const [numberButtonsJSX, setNumberButtonsJSX] = React.useState(() => []);
   const [controlButtonsJSX, setControlButtonsJSX] = React.useState(() =>[]);
 
-  const generateButtonsJSX = (arr) => {
-    console.log("generateButtonsJSX for:", arr);
-    return arr.map(e => <button key={e.id}>{e.value}</button> );
+  const generateButtonsJSX = (arr, defaultColWidth=4) => {
+    // console.log("generateButtonsJSX for:", arr);
+
+    const colWidth = "col-sm-"+defaultColWidth;
+
+    
+
+    return arr.map(e => {
+
+      /*
+      let btnClassName = "col-sm-" + defaultColWidth;
+
+      if(e.colWidth) {
+        btnClassName = "col-sm-" + e.colWidth;
+      } */
+      
+      let btnClassName = "col-sm-" + (e.colWidth===undefined ?  defaultColWidth : e.colWidth);
+
+      // console.log("btnClassName", btnClassName);
+
+      return (
+        <div className={btnClassName + " " + clsx("p-1", {colWidth: !e.colWidth} )}>
+          <button id={e.id} className="btn btn-primary w-100" key={e.id}>
+            {e.value}
+          </button>
+        </div>
+      )
+
+      });
+    
   } 
 
               
@@ -27,15 +54,15 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, ...restPr
     <> 
 
       <Col className="col-6" id="container-number-buttons">
-
-        {generateButtonsJSX(numberButtons)}
-        
+        <Row noGutters>
+          {generateButtonsJSX(numberButtons)}
+        </Row>
       </Col>
 
       <Col className="col-6" id="container-control-buttons">
-
-        {generateButtonsJSX(controlButtons)}
-
+        <Row noGutters>
+          {generateButtonsJSX(controlButtons, 6)}
+        </Row>
       </Col>
   
     </> 

@@ -1,5 +1,5 @@
 // import bootstrap
-@import "~bootstrap/scss/bootstrap";
+// @import "~bootstrap/scss/bootstrap";
 
 .App {
   font-family: sans-serif;
@@ -7,9 +7,10 @@
 }
 
 
-//for development
+// for development
 .col,
 .row,
 .container {
   border: 0.5px solid red;
+  padding: 2px 2px;
 }

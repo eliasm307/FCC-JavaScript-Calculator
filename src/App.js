@@ -2,10 +2,103 @@
 import { evaluate } from "mathjs";
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap"; 
+import CalculatorSection from "./components/CalculatorSection";
+
 
 import "./global-styles.scss";
 
 const date = new Date();
+
+const numberButtons = [
+  {
+    id: "decimal",
+    keyCode: 0,
+    value: ".",
+  },
+  {
+    id: "zero",
+    keyCode: 0,
+    value: "0",
+    
+  }, 
+  {
+    id: "one",
+    keyCode: 0,
+    value: "1",
+  }, 
+  {
+    id: "two",
+    keyCode: 0,
+    value: "2",
+  }, 
+  {
+    id: "three",
+    keyCode: 0,
+    value: "3",
+  }, 
+  {
+    id: "four",
+    keyCode: 0,
+    value: "4",
+  }, 
+  {
+    id: "five",
+    keyCode: 0,
+    value: "5",
+  }, 
+  {
+    id: "six",
+    keyCode: 0,
+    value: "6",
+  }, 
+  {
+    id: "seven",
+    keyCode: 0,
+    value: "7",
+  }, 
+  {
+    id: "eight",
+    keyCode: 0,
+    value: "8",
+  }, 
+  {
+    id: "nine",
+    keyCode: 0,
+    value: "9",
+  }
+];
+
+const controlButtons = [
+  {
+    id: "add",
+    keyCode: 0,
+    value: "+"
+  }, 
+  {
+    id: "subtract",
+    keyCode: 0,
+    value: "-",
+    
+  }, 
+  {
+    id: "divide",
+    keyCode: 0,
+    value: "/",
+    
+  }, 
+  {
+    id: "multiply",
+    keyCode: 0,
+    value: "x",
+    
+  }, 
+  {
+    id: "clear",
+    keyCode: 0,
+    value: "C",
+    
+  }
+];
 
 class App extends React.Component {
 
@@ -23,10 +116,11 @@ class App extends React.Component {
 
   evaluateExp(sExpression) { 
     try {
+      console.log("Evaluating expression:", sExpression)
       return evaluate(sExpression)
     } 
     catch(e) {
-      console.log(e);
+      // console.log("MathJS error:", e);
       return "Error";
     }
 
@@ -66,6 +160,9 @@ class App extends React.Component {
    
           </Row>
   
+          <Row>
+            <CalculatorSection numberButtons={numberButtons} controlButtons={controlButtons} />
+          </Row>
           
   
         </Container>

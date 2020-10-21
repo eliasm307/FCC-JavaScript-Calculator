@@ -20,10 +20,10 @@ const HistorySection = ({ arrayHistory, className, ...restProps }) => {
   const historyJSX = arrayHistory.map(({expression, result}, i) => {
 
     return(
-      <li key={expression+result+i} className="row no-gutters">
-        <Col sm={6}>{expression}</Col> 
+      <Row as="li" noGutters key={expression+result+i}>
+        <Col className="col" md={6}>{expression}</Col> 
         <Col>= {result}</Col>
-      </li>
+      </Row>
     );
 
   });
@@ -39,12 +39,8 @@ const HistorySection = ({ arrayHistory, className, ...restProps }) => {
       </Row>
 
       <Row noGutters>
-        <Col id="container-history">
-          
-          <ul>
-            {historyJSX}
-          </ul>
-          
+        <Col as="ul" id="container-history"> 
+          {historyJSX} 
         </Col>
       </Row>
   

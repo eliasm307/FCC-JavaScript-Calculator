@@ -92,7 +92,21 @@ const controlButtons = [
     id: "delete",
     keyCode: 0,
     value: "Delete",
-    stringAction: (str) => str.substring(1, str.length),
+    stringAction: (str) => {
+
+      let s = str;
+
+      // no change if it is initial zero value
+      if(s==="0") return s; 
+      
+      // remove last character
+      s = s.substring(0, s.length-1)
+
+      // if all characters removed then set to initial zero value
+      if(s==="") s = "0";
+
+      return s;
+    },
     colWidth: 6 
   }, 
   {

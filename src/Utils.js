@@ -3,7 +3,7 @@ import { evaluate, isNumeric, create, all } from "mathjs";
 let mathDefaultPrecision = 6;
 
 const oMath = create(all, {
-  number: 'BigNumber',    // Choose 'number' (default), 'BigNumber', or 'Fraction'
+  number: 'number',    // Choose 'number' (default), 'BigNumber', or 'Fraction'
   precision: mathDefaultPrecision           // 64 by default, only applicable for BigNumbers
 })
 
@@ -19,7 +19,7 @@ export default function evaluateExp(sExpression, precision=mathDefaultPrecision)
   
   try {
     sResult = oMath.evaluate(sExpression.replace("x", "*"));
-    console.log("Evaluating expression:", sExpression, "=", sResult)
+    console.log("evaluateExp", "Evaluating expression:", sExpression, "=", sResult)
     return isNumeric( sResult) ? sResult : "NaN" ; 
   } 
   catch(e) {

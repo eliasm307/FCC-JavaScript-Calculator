@@ -17,16 +17,29 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
   const [evaluatedExpression, setEvaluatedExpression] = React.useState(0);
 
 
-  const updateDisplayTexts = (localDisplayText) => {
+  const updateDisplayTexts = (localDisplayText, bRequireValidExpression=false) => {
     console.log("CalculatorSection", "updateDisplayTexts, localDisplayText:", localDisplayText);
-    let sEvaluatedExp;
-    
-    setDisplayText(localDisplayText);  
-
+   
     // evaluate updated display text and display preview result
-    sEvaluatedExp = evaluateExp(localDisplayText); 
-    setEvaluatedExpression(sEvaluatedExp.toString()); 
-    setPreviewText(sEvaluatedExp.toString());
+    let sEvaluatedExp = evaluateExp(localDisplayText); 
+
+
+    // only update if valid expression is not required or if a valid expression is provided when required
+    if(bRequireValidExpression && isNaN(parseFloat(sEvaluatedExp))) {
+      console.log("CalculatorSection", "Valid expression required, but evaluation of expression:", localDisplayText, "results in:", sEvaluatedExp, "which is not a valid result hence expression is invalid. No updates made");
+
+      return;
+
+    }
+
+    // update displayed expression
+    setDisplayText(localDisplayText);
+
+    // update displayed result
+    setEvaluatedExpression(sEvaluatedExp); 
+
+    // display preview result
+    setPreviewText(sEvaluatedExp);
 
   }
 
@@ -76,7 +89,7 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
         }
       }
       else if (isNumeric(parseFloat(previewText))) {
-        // on;y log a result if it is a valid expression
+        // only log a result if it is a valid expression
         
         handleSuccessfulEvaluation({
           expression: displayText,
@@ -87,7 +100,7 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
         setLastResult(evaluatedExpression);
       }
 
-    }
+    } 
     else {
       // if a non equals button was clicked then amend display text as required
 
@@ -96,11 +109,8 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
       
       // update display text as per button string action
       localDisplayText = objButton.stringAction(displayText === "0" ? "" : displayText);
-
-    
-      
-
-      updateDisplayTexts(localDisplayText)
+ 
+      updateDisplayTexts(localDisplayText, clickedButtonValue===".")
  
     }
  
@@ -137,8 +147,9 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
 
       <Row noGutters id="container-display">  
         <Col md={12} className="mb-3"> 
+          <p id="display" className="display-none">{displayText}</p>
           <textarea 
-            id="display" 
+            id="textarea-display" 
             type="text"  
             className=""
             onChange={handleDisplayTextDirectChange} 

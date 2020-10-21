@@ -63,6 +63,8 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
         result: evaluatedExpression
       }); 
 
+      setDisplayText(evaluatedExpression);
+
     }
     else {
       // if a non equals button was clicked then amend display text as required
@@ -85,7 +87,7 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
  
     return arr.map(e => {  
       // if custom bootstrap col-width has been defined then use it, otherwise use the default
-      let btnClassName = "col-sm-" + (e.colWidth===undefined ?  defaultColWidth : e.colWidth);
+      let btnClassName = "col-" + (e.colWidth===undefined ?  defaultColWidth : e.colWidth);
  
       return (
         <div className={btnClassName + " " + clsx("btn-container" )}>
@@ -111,11 +113,13 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
 
       <Row noGutters id="container-display">  
         <Col md={12} className="mb-3"> 
-          <input 
+          <textarea 
             id="display" 
             type="text"  
             className=""
             onChange={handleDisplayTextDirectChange} 
+            placeholder="Enter mathematical expression"
+            rows="2"
             value={displayText}
           />
         </Col>
@@ -126,13 +130,13 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
       </Row>
   
       <Row noGutters>
-        <Col className="col-6" id="container-number-buttons">
+        <Col sm={6} id="container-number-buttons">
           <Row noGutters>
             {generateButtonsJSX(numberButtons, 4)}
           </Row>
         </Col>
 
-        <Col className="col-6" id="container-control-buttons">
+        <Col id="container-control-buttons">
           <Row noGutters>
             {generateButtonsJSX(controlButtons, 6)}
           </Row>

@@ -11,6 +11,10 @@ TODO
 
 - Add ui to set precision
 - Add controls to clear history
+= Fix overflow for history section
+- use more of the width
+
+
 */
 
 const date = new Date();
@@ -139,7 +143,7 @@ const controlButtons = [
     colWidth: 4  
   },
   {
-    id: "equal",
+    id: "equals",
     keyCode: 0,
     value: "=",
     colWidth: 4

@@ -10,8 +10,7 @@ $standardSpacing: 10px;
   #container-control-buttons,
   #container-display {
     
-      padding: 0 $standardSpacing;    
-      
+       padding: $standardSpacing $standardSpacing;    
       // margin: 0px;
     
   }
@@ -23,8 +22,10 @@ $standardSpacing: 10px;
     
     }
 
-    input {
+    #display {
       background-color: transparent;
+      display: block;
+      resize: none;
       color: white;
       width: 100%;
       border: none;
@@ -32,10 +33,20 @@ $standardSpacing: 10px;
       border-bottom: 1px solid grey
       
     }
+
+    #preview { 
+      margin: 0;
+    }
+    
+
+  }
+
+  .btn {
+    height: 13vh;
   }
 
   .btn-container {
     padding: 1px;
-    // margin: 0;
+    // margin: 0; 
   }
 }

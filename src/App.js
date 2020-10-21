@@ -83,13 +83,15 @@ const controlButtons = [
     id: "delete",
     keyCode: 0,
     value: "Delete",
-    stringAction: (str) => str.substring(1, str.length) 
+    stringAction: (str) => str.substring(1, str.length),
+    colWidth: 6 
   }, 
   {
     id: "clear",
     keyCode: 0,
     value: "Clear",
-    stringAction: (str) => ""
+    stringAction: (str) => "",
+    colWidth: 6
   }, 
   {
     id: "add",
@@ -114,7 +116,19 @@ const controlButtons = [
     keyCode: 0,
     value: "x",
     stringAction: (str) => str + " x "     
-  },  
+  },   
+  {
+    id: "left-bracket",
+    keyCode: 0,
+    value: "(",
+    stringAction: (str) => str + " ( "     
+  }, 
+  {
+    id: "right-bracket",
+    keyCode: 0,
+    value: ")",
+    stringAction: (str) => str + " ) "     
+  },
   {
     id: "equal",
     keyCode: 0,
@@ -159,7 +173,7 @@ class App extends React.Component {
     console.log("BEOFRE this.state.arrayHistory", this.state.arrayHistory);
 
     this.setState({
-      arrayHistory: [{expression, result }, ...this.state.arrayHistory]
+      arrayHistory: [{expression, result}, ...this.state.arrayHistory]
     });
  
 

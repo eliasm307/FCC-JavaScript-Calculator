@@ -90,7 +90,7 @@ const controlButtons = [
     id: "clear",
     keyCode: 0,
     value: "Clear",
-    stringAction: (str) => "",
+    stringAction: (str) => "0",
     colWidth: 6
   }, 
   {

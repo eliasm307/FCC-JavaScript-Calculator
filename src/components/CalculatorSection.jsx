@@ -10,8 +10,8 @@ import evaluateExp from "../Utils";
 const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuccessfulEvaluation, ...restProps }) => {
   // console.log("CalculatorSection: Start"); 
   
-  const [displayText, setDisplayText] = React.useState("");
-  const [previewText, setPreviewText] = React.useState("");
+  const [displayText, setDisplayText] = React.useState("0");
+  const [previewText, setPreviewText] = React.useState("0");
   const [evaluatedExpression, setEvaluatedExpression] = React.useState(0);
 
 
@@ -42,9 +42,8 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
     if(clickedButtonValue==="=") {
       // if equals button clicked, return last expression and evaluation result from state to parent
 
-      console.log("it is the equals button, evaluated expression: ", sEvaluatedExp);
-       
-      setDisplayText("= " + sEvaluatedExp);
+      console.log("it is the equals button, evaluated expression result: ", evaluatedExpression);
+        
       handleSuccessfulEvaluation({
         expression: displayText,
         result: evaluatedExpression
@@ -57,7 +56,7 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
       console.log("Button clicked object value: ", clickedButtonValue, "display text before action:", localDisplayText); 
 
       // update display text as per button string action
-      localDisplayText = objButton.stringAction(displayText);
+      localDisplayText = objButton.stringAction(displayText === "0" ? "" : displayText);
       setDisplayText(localDisplayText);  
 
       console.log("Button clicked object value: ", clickedButtonValue, "display text after action:", localDisplayText); 

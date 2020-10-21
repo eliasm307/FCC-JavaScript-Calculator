@@ -15,26 +15,40 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
   const [evaluatedExpression, setEvaluatedExpression] = React.useState(0);
 
 
-  
+  const updateDisplayTexts = (localDisplayText) => {
+    let sEvaluatedExp;
+    
+    setDisplayText(localDisplayText);  
+
+    // evaluate updated display text and display preview result
+    sEvaluatedExp = evaluateExp(localDisplayText); 
+    setEvaluatedExpression(sEvaluatedExp.toString()); 
+    setPreviewText(sEvaluatedExp.toString());
+
+  }
+
+  const handleDisplayTextDirectChange = (e) => {
+    console.log("CalculatorSection", "Display text changed directly to: ", "'" + e.target.value + "'")
+    updateDisplayTexts(e.target.value);
+  }
 
   const handleButtonClick = (e) => {
-    console.log("Button clicked: ", "'" + e.target.innerHTML + "'")
+    console.log("CalculatorSection", "Button clicked: ", "'" + e.target.innerHTML + "'")
 
     let clickedButtonValue = e.target.innerHTML.trim();
-    let sEvaluatedExp;
     let objButton = {};
     let localDisplayText = displayText; // using a local variable because display text is updated async
 
     
     if(isNaN(clickedButtonValue) && clickedButtonValue!==".") {
       // if it is a command
-      console.log("it is a command button");
+      console.log("CalculatorSection", "it is a command button");
       objButton = controlButtons.find(e => e.value===clickedButtonValue)
 
     }
     else {
       // if it is a number or a decimal point
-      console.log("it is a number or decimal point button");
+      console.log("CalculatorSection", "it is a number or decimal point button");
       objButton = numberButtons.find(e => e.value===clickedButtonValue)
 
     }
@@ -42,7 +56,7 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
     if(clickedButtonValue==="=") {
       // if equals button clicked, return last expression and evaluation result from state to parent
 
-      console.log("it is the equals button, evaluated expression result: ", evaluatedExpression);
+      console.log("CalculatorSection", "it is the equals button, evaluated expression result: ", evaluatedExpression);
         
       handleSuccessfulEvaluation({
         expression: displayText,
@@ -53,18 +67,15 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
     else {
       // if a non equals button was clicked then amend display text as required
 
-      console.log("Button clicked object value: ", clickedButtonValue, "display text before action:", localDisplayText); 
+      console.log("CalculatorSection", "Button clicked object value: ", clickedButtonValue, "display text before action:", localDisplayText); 
 
       // update display text as per button string action
       localDisplayText = objButton.stringAction(displayText === "0" ? "" : displayText);
-      setDisplayText(localDisplayText);  
 
-      console.log("Button clicked object value: ", clickedButtonValue, "display text after action:", localDisplayText); 
+      updateDisplayTexts(localDisplayText)
 
-      // evaluate updated display text and display preview result
-      sEvaluatedExp = evaluateExp(localDisplayText); 
-      setEvaluatedExpression(sEvaluatedExp.toString()); 
-      setPreviewText(sEvaluatedExp.toString());
+      
+      
     }
  
   }
@@ -89,7 +100,8 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
   } 
 
               
-  console.log("CalculatorSection: Pre-Render");
+  console.log("CalculatorSection", "CalculatorSection: Pre-Render");
+
   return (
     
     <section id="calculator-section" className="col-md-6"> 
@@ -100,6 +112,12 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
       <Row noGutters id="container-display">  
         <Col md={12}>
           <p id="display">{displayText}</p> 
+          <input 
+            id="txt" 
+            type="text" 
+            onChange={handleDisplayTextDirectChange} 
+            value={displayText}
+          />
         </Col>
 
         <Col>

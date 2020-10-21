@@ -6,6 +6,13 @@ import HistorySection from "./components/HistorySection";
 import "./global-styles.scss";
 import evaluateExp from "./Utils";
 
+/*
+TODO
+
+- Add ui to set precision
+- Add controls to clear history
+*/
+
 const date = new Date();
 
 const numberButtons = [ 
@@ -139,9 +146,11 @@ const controlButtons = [
   }
 ];
 
-const historyItem = {
-  expression: "expression",
-  result: "result"
+const generateHistoryItem = () => {
+  return {
+    expression: "expression",
+    result: Math.random() * 100
+  }
 }
 
 class App extends React.Component {
@@ -152,7 +161,11 @@ class App extends React.Component {
     this.state = {
       currentExpression: "",
       currentResult: "",
-      arrayHistory: []
+      arrayHistory: [
+        generateHistoryItem(),
+        generateHistoryItem(),
+        generateHistoryItem(),
+      ]
     }
 
     this.handleInputChange = this.handleInputChange.bind(this);

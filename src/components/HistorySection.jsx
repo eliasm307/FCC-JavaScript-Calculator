@@ -17,11 +17,12 @@ const HistorySection = ({ arrayHistory, className, ...restProps }) => {
   const [numberButtonsJSX, setNumberButtonsJSX] = React.useState([]);
   const [controlButtonsJSX, setControlButtonsJSX] = React.useState([]);
 
-  const historyJSX = arrayHistory.map(({expression, result}) => {
+  const historyJSX = arrayHistory.map(({expression, result}, i) => {
 
     return(
-      <li key={expression}>
-        {expression} = {result}
+      <li key={expression+result+i} className="row no-gutters">
+        <Col sm={6}>{expression}</Col> 
+        <Col>= {result}</Col>
       </li>
     );
 

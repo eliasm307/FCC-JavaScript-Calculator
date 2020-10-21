@@ -14,14 +14,14 @@ const HistorySection = ({ arrayHistory, className, ...restProps }) => {
 
   console.log("HistorySection, arrayHistory:", arrayHistory );
 
-  const [numberButtonsJSX, setNumberButtonsJSX] = React.useState(() => []);
-  const [controlButtonsJSX, setControlButtonsJSX] = React.useState(() =>[]);
+  const [numberButtonsJSX, setNumberButtonsJSX] = React.useState([]);
+  const [controlButtonsJSX, setControlButtonsJSX] = React.useState([]);
 
-  const historyJSX = arrayHistory.map(e => {
+  const historyJSX = arrayHistory.map(({expression, result}) => {
 
     return(
-      <li>
-        {e.expression} - {e.result}
+      <li key={expression}>
+        {expression} = {result}
       </li>
     );
 
@@ -62,6 +62,7 @@ HistorySection.propTypes = {
 HistorySection.defaultProps = {
   children: null,
   className: null, 
+  arrayHistory: null
 };
 
 export default HistorySection;

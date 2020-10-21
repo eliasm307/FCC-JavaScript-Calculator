@@ -7,7 +7,7 @@ const oMath = create(all, {
   precision: mathDefaultPrecision           // 64 by default, only applicable for BigNumbers
 })
 
-export default function evaluateExp(sExpression, precision=mathDefaultPrecision) { 
+export default function EvaluateExp(sExpression, precision=mathDefaultPrecision) { 
   let sResult;
 
   // if non-default precision is requested

@@ -5,10 +5,13 @@ import clsx from "clsx";
 import { Row, Col } from "react-bootstrap"; 
 
 import "./CalculatorSection.scss"; 
-import evaluateExp from "../Utils";
+import EvaluateExp from "../Utils/EvaluateExp";
 import { isNumeric } from "mathjs";
 
-const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuccessfulEvaluation, ...restProps }) => {
+import { numberButtons } from "../Data/NumberButtons";
+import { controlButtons } from "../Data/ControlButtons";
+
+const CalculatorSection = ({ className, handleSuccessfulEvaluation, ...restProps }) => {
   // console.log("CalculatorSection: Start"); 
   
   const [displayText, setDisplayText] = React.useState("0");
@@ -21,7 +24,7 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
     console.log("CalculatorSection", "updateDisplayTexts, localDisplayText:", localDisplayText);
    
     // evaluate updated display text and display preview result
-    let sEvaluatedExp = evaluateExp(localDisplayText); 
+    let sEvaluatedExp = EvaluateExp(localDisplayText); 
 
 
     // only update if valid expression is not required or if a valid expression is provided when required

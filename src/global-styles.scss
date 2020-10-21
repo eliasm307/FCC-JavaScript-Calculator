@@ -2,6 +2,7 @@
 // @import "~bootstrap/scss/bootstrap";
 
 $primary: black;
+$standardSpacing: 10px;
 
 .btn {
   background-color: black;
@@ -22,7 +23,7 @@ $primary: black;
 .row,
 .container {
   border: 0px solid red;
-  padding: 2px 2px;
+  // padding: 0px 0px;
 }
 
 body {
@@ -44,15 +45,7 @@ body {
     margin: 10px 0px;
     padding: 10px;
   }
-  
-  
-  
-  h1,
-  h2,
-  h3,
-  h4 {
-    padding: 0 10px;
-  }
+   
  
 
 }

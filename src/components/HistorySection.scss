@@ -1,13 +1,19 @@
+$standardSpacing: 10px;
+
 #history-section {
 
+  h2 {
+    padding-left: $standardSpacing;
+  }
+
   #container-history {
-    padding: 0;
+    // padding: 0;
     text-align: left;
     
     li {
-      margin: 10px;
-      padding: 10px;
-      border-radius: 5px; 
+      margin: 5px;
+      padding: ($standardSpacing * 0.5);
+      border-radius: ($standardSpacing * 0.5);
 
       .expression {
         font-style: italic;

@@ -1,6 +1,6 @@
 import { evaluate, isNumeric, create, all } from "mathjs";
 
-let mathDefaultPrecision = 3;
+let mathDefaultPrecision = 6;
 
 const oMath = create(all, {
   number: 'BigNumber',    // Choose 'number' (default), 'BigNumber', or 'Fraction'

@@ -78,7 +78,7 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
  
       return (
         <div className={btnClassName + " " + clsx("btn-container" )}>
-          <button id={e.id} className="btn btn-primary w-100" key={e.id} onClick={handleButtonClick}>
+          <button id={e.id} className="btn btn-dark w-100" key={e.id} onClick={handleButtonClick}>
             {e.value}
           </button>
         </div>
@@ -98,8 +98,11 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
       </Row>
 
       <Row noGutters id="container-display">  
-        <Col className="">
+        <Col md={12}>
           <p id="display">{displayText}</p> 
+        </Col>
+
+        <Col>
           <p id="preview">= {previewText}</p> 
         </Col>
       </Row>

@@ -6,16 +6,19 @@ import { Row, Col } from "react-bootstrap";
 
 import "./CalculatorSection.scss"; 
 import evaluateExp from "../Utils";
+import { isNumeric } from "mathjs";
 
 const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuccessfulEvaluation, ...restProps }) => {
   // console.log("CalculatorSection: Start"); 
   
   const [displayText, setDisplayText] = React.useState("0");
   const [previewText, setPreviewText] = React.useState("0");
+  const [lastResult, setLastResult] = React.useState("0");
   const [evaluatedExpression, setEvaluatedExpression] = React.useState(0);
 
 
   const updateDisplayTexts = (localDisplayText) => {
+    console.log("CalculatorSection", "updateDisplayTexts, localDisplayText:", localDisplayText);
     let sEvaluatedExp;
     
     setDisplayText(localDisplayText);  
@@ -57,13 +60,32 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
       // if equals button clicked, return last expression and evaluation result from state to parent
 
       console.log("CalculatorSection", "it is the equals button, evaluated expression result: ", evaluatedExpression);
-        
-      handleSuccessfulEvaluation({
-        expression: displayText,
-        result: evaluatedExpression
-      }); 
 
-      setDisplayText(evaluatedExpression);
+      if(displayText === "0") {
+        console.log("current display text is zero, lastResult:", lastResult);
+        // if equals pressed without an expression then use the last result if it exists
+        if(isNumeric(parseFloat(lastResult)) && lastResult!=="0") {
+          // if valid last result exists
+          updateDisplayTexts(lastResult);
+          setPreviewText(lastResult + " (from last result)")
+        }
+        else {
+          // if there is no valid last result do nothing
+          console.log("CalculatorSection","no valid last result, doing nothing");
+          return;
+        }
+      }
+      else if (isNumeric(parseFloat(previewText))) {
+        // on;y log a result if it is a valid expression
+        
+        handleSuccessfulEvaluation({
+          expression: displayText,
+          result: evaluatedExpression
+        }); 
+
+        setDisplayText(evaluatedExpression);
+        setLastResult(evaluatedExpression);
+      }
 
     }
     else {
@@ -71,13 +93,15 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
 
       console.log("CalculatorSection", "Button clicked object value: ", clickedButtonValue, "display text before action:", localDisplayText); 
 
+      
       // update display text as per button string action
       localDisplayText = objButton.stringAction(displayText === "0" ? "" : displayText);
 
-      updateDisplayTexts(localDisplayText)
+    
+      
 
-      
-      
+      updateDisplayTexts(localDisplayText)
+ 
     }
  
   }
@@ -118,7 +142,7 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
             type="text"  
             className=""
             onChange={handleDisplayTextDirectChange} 
-            placeholder="Enter mathematical expression"
+            placeholder="Enter mathematical expression via keyboard or buttons"
             rows="2"
             value={displayText}
           />

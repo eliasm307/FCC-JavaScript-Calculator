@@ -9,11 +9,9 @@ import evaluateExp from "./Utils";
 /*
 TODO
 
-- Add ui to set precision
-- Add controls to clear history
-= Fix overflow for history section
-- use more of the width
-
+- Add ui to set precision (not necessary?)
+- Add controls to clear history 
+- Add keyboard bindings so typing automatically focusses on text area and puts character in last position of caret
 
 */
 

@@ -24,7 +24,7 @@ export default function evaluateExp(sExpression, precision=mathDefaultPrecision)
   } 
   catch(e) {
     console.log("MathJS error:", e);
-    return "";
+    return "Invalid expression";
   }
 
 }

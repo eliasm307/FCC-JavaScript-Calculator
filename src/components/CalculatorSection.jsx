@@ -93,18 +93,17 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
   return (
     
     <section id="calculator-section" className="col-md-6"> 
-      <Row noGutters> 
+      <Row noGutters > 
         <h2>Calculator</h2>  
       </Row>
 
-      <Row noGutters>  
-        <p id="display">{displayText}</p> 
+      <Row noGutters id="container-display">  
+        <Col className="">
+          <p id="display">{displayText}</p> 
+          <p id="preview">= {previewText}</p> 
+        </Col>
       </Row>
-
-      <Row noGutters>  
-        <p id="preview">= {previewText}</p> 
-      </Row>
-
+  
       <Row noGutters>
         <Col className="col-6" id="container-number-buttons">
           <Row noGutters>

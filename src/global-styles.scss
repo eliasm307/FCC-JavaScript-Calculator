@@ -1,6 +1,22 @@
 // import bootstrap
 // @import "~bootstrap/scss/bootstrap";
 
+$primary: black;
+
+.btn {
+  background-color: black;
+  border: none;
+  outline: none;
+}
+
+.btn:focus,
+.btn:active {
+  background-color: black;
+  border: none;
+  outline: none;
+
+}
+
 // for development
 .col,
 .row,

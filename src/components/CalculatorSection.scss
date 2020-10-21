@@ -1,14 +1,24 @@
 #calculator-section {
 
   #container-number-buttons,
-  #container-control-buttons {
+  #container-control-buttons,
+  #container-display {
     
-      padding: 10px;
-      //margin: 5px;
+      padding: 10px;    
+      
+      margin: 0px;
     
+  }
+
+  #container-display {
+    border: 0px solid red;
+    .col {
+    text-align: left;
+    }
   }
 
   .btn-container {
     padding: 1px;
+    margin: 0;
   }
 }

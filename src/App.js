@@ -167,20 +167,13 @@ class App extends React.Component {
         generateHistoryItem(),
       ]
     }
-
-    this.handleInputChange = this.handleInputChange.bind(this);
+ 
     this.handleSuccessfulEvaluation = this.handleSuccessfulEvaluation.bind(this);
 
   }
 
   
-
-  handleInputChange(e) { 
-    this.setState({
-      currentExpression: e.target.value,
-      currentResult: evaluateExp(e.target.value)
-    })
-  }
+ 
   
   handleSuccessfulEvaluation({expression, result}) {
     console.log("APP", "handling successufl evaluation of expression and result:", {expression, result });
@@ -204,25 +197,9 @@ class App extends React.Component {
     return (
       <>
         <Container fluid className="App">
-          <Row noGutters as="section" >
-            <h1>Javascript Calculator</h1> 
-          </Row>
-  
-          <Row noGutters as="section">
-            
-            <Col>
-              <input id="txt" type="text" onChange={this.handleInputChange} />
-            </Col>
-  
-            <Col>
-              <p>{this.state.currentExpression}</p>
-            </Col>
-
-            <Col>
-              <p>{this.state.currentResult}</p>
-            </Col>
-   
-          </Row>
+          
+          <h1>Javascript Calculator</h1> 
+          
   
           <Row noGutters>
 

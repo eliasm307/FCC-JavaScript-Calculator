@@ -110,11 +110,11 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
       </Row>
 
       <Row noGutters id="container-display">  
-        <Col md={12}>
-          <p id="display">{displayText}</p> 
+        <Col md={12} className="mb-3"> 
           <input 
-            id="txt" 
-            type="text" 
+            id="display" 
+            type="text"  
+            className=""
             onChange={handleDisplayTextDirectChange} 
             value={displayText}
           />

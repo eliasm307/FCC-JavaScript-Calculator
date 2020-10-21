@@ -70,7 +70,7 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
  
   }
 
-  const generateButtonsJSX = (arr, defaultColWidth=4) => {
+  const generateButtonsJSX = (arr, defaultColWidth) => {
     // console.log("generateButtonsJSX for:", arr);
  
     return arr.map(e => {  
@@ -78,7 +78,7 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
       let btnClassName = "col-sm-" + (e.colWidth===undefined ?  defaultColWidth : e.colWidth);
  
       return (
-        <div className={btnClassName + " " + clsx("p-1", {colWidth: !e.colWidth} )}>
+        <div className={btnClassName + " " + clsx("btn-container" )}>
           <button id={e.id} className="btn btn-primary w-100" key={e.id} onClick={handleButtonClick}>
             {e.value}
           </button>
@@ -109,7 +109,7 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
       <Row noGutters>
         <Col className="col-6" id="container-number-buttons">
           <Row noGutters>
-            {generateButtonsJSX(numberButtons)}
+            {generateButtonsJSX(numberButtons, 4)}
           </Row>
         </Col>
 

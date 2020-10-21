@@ -121,19 +121,21 @@ const controlButtons = [
     id: "left-bracket",
     keyCode: 0,
     value: "(",
-    stringAction: (str) => str + " ( "     
+    stringAction: (str) => str + " ( ",
+    colWidth: 4     
   }, 
   {
     id: "right-bracket",
     keyCode: 0,
     value: ")",
-    stringAction: (str) => str + " ) "     
+    stringAction: (str) => str + " ) ",
+    colWidth: 4  
   },
   {
     id: "equal",
     keyCode: 0,
     value: "=",
-    colWidth: 12
+    colWidth: 4
   }
 ];
 

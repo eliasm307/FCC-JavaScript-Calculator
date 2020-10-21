@@ -21,8 +21,8 @@ const HistorySection = ({ arrayHistory, className, ...restProps }) => {
 
     return(
       <Row as="li" noGutters key={expression+result+i}>
-        <Col className="col" md={6}>{expression}</Col> 
-        <Col>= {result}</Col>
+        <Col className="expression" lg={6}>{expression}</Col> 
+        <Col className="result">= {result}</Col>
       </Row>
     );
 

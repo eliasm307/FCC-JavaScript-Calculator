@@ -204,11 +204,11 @@ class App extends React.Component {
     return (
       <>
         <Container fluid className="App">
-          <Row>
+          <Row noGutters as="section" >
             <h1>Javascript Calculator</h1> 
           </Row>
   
-          <Row>
+          <Row noGutters as="section">
             
             <Col>
               <input id="txt" type="text" onChange={this.handleInputChange} />
@@ -224,7 +224,7 @@ class App extends React.Component {
    
           </Row>
   
-          <Row >
+          <Row noGutters>
 
             <CalculatorSection numberButtons={numberButtons} controlButtons={controlButtons}  handleSuccessfulEvaluation={this.handleSuccessfulEvaluation}/>
 

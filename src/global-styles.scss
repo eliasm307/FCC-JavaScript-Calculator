@@ -1,18 +1,47 @@
 // import bootstrap
 // @import "~bootstrap/scss/bootstrap";
 
-
-
-.App {
-  font-family: sans-serif;
-  text-align: center;
-}
-
-
 // for development
 .col,
 .row,
 .container {
-  border: 0.5px solid red;
+  border: 0px solid red;
   padding: 2px 2px;
 }
+
+body {
+  background-color: rgba(50,50,50,1);
+  // padding: 5%;
+  
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+ 
+  
+  color: white; 
+
+  
+  section {
+    border: 1px solid gray;
+    margin: 10px 0px;
+    padding: 10px;
+  }
+  
+  
+  
+  h1,
+  h2,
+  h3,
+  h4 {
+    padding: 0 10px;
+  }
+ 
+
+}
+
+
+
+
+

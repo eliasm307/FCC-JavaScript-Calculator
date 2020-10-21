@@ -2,11 +2,21 @@
 
   #container-history {
     padding: 0;
+    text-align: left;
     
     li {
       margin: 10px;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: 5px; 
+
+      .expression {
+        font-style: italic;
+
+      }
+
+      .result {
+        font-weight: 700;
+      }
 
     }
   }

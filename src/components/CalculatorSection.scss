@@ -1,4 +1,13 @@
 #calculator-section {
+
+  .container-number-buttons,
+  .container-control-buttons {
+    .row {
+      padding: 10px;
+      margin: 10px;
+    }
+  }
+
   .btn-container {
     padding: 1px;
   }

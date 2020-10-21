@@ -92,7 +92,7 @@ const CalculatorSection = ({ numberButtons, controlButtons, className, handleSuc
   console.log("CalculatorSection: Pre-Render");
   return (
     
-    <section id="calculator-section" className="col"> 
+    <section id="calculator-section" className="col-md-6"> 
       <Row noGutters> 
         <h2>Calculator</h2>  
       </Row>

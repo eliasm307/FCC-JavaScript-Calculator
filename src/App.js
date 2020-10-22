@@ -11,6 +11,7 @@ TODO
 - Add ui to set precision (not necessary?)
 - Add controls to clear history 
 - Add keyboard bindings so typing automatically focusses on text area and puts character in last position of caret
+- Invalid expressions should not go into history
 
 */
 
@@ -44,7 +45,10 @@ class App extends React.Component {
     console.log("APP", "handling successufl evaluation of expression and result:", { expression, result }); 
     
     this.setState({
-      arrayHistory: [{expression, result}, ...this.state.arrayHistory]
+      arrayHistory: [
+        { expression, result },
+        ...this.state.arrayHistory
+      ]
     }); 
   }
 

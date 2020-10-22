@@ -21,7 +21,7 @@ const CalculatorSection = ({ className, handleSuccessfulEvaluation, ...restProps
 
 
   const updateDisplayTexts = (localDisplayText, bRequireValidExpression=false) => {
-    console.log("CalculatorSection", "updateDisplayTexts, localDisplayText:", localDisplayText);
+    // console.log("CalculatorSection", "updateDisplayTexts, localDisplayText:", localDisplayText);
    
     // evaluate updated display text and display preview result
     let sEvaluatedExp = EvaluateExp(localDisplayText); 
@@ -47,7 +47,7 @@ const CalculatorSection = ({ className, handleSuccessfulEvaluation, ...restProps
   }
 
   const handleDisplayTextDirectChange = (e) => {
-    console.log("CalculatorSection", "Display text changed directly to: ", "'" + e.target.value + "'")
+    // console.log("CalculatorSection", "Display text changed directly to: ", "'" + e.target.value + "'")
     updateDisplayTexts(e.target.value);
   }
 
@@ -61,13 +61,13 @@ const CalculatorSection = ({ className, handleSuccessfulEvaluation, ...restProps
     
     if(isNaN(clickedButtonValue) && clickedButtonValue!==".") {
       // if it is a command
-      console.log("CalculatorSection", "it is a command button");
+      // console.log("CalculatorSection", "it is a command button");
       objButton = controlButtons.find(e => e.value===clickedButtonValue)
 
     }
     else {
       // if it is a number or a decimal point
-      console.log("CalculatorSection", "it is a number or decimal point button");
+      // console.log("CalculatorSection", "it is a number or decimal point button");
       objButton = numberButtons.find(e => e.value===clickedButtonValue)
 
     }
@@ -75,10 +75,10 @@ const CalculatorSection = ({ className, handleSuccessfulEvaluation, ...restProps
     if(clickedButtonValue==="=") {
       // if equals button clicked, return last expression and evaluation result from state to parent
 
-      console.log("CalculatorSection", "it is the equals button, evaluated expression result: ", evaluatedExpression);
+      // console.log("CalculatorSection", "it is the equals button, evaluated expression result: ", evaluatedExpression);
 
       if(displayText === "0") {
-        console.log("current display text is zero, lastResult:", lastResult);
+        // console.log("current display text is zero, lastResult:", lastResult);
         // if equals pressed without an expression then use the last result if it exists
         if(isNumeric(parseFloat(lastResult)) && lastResult!=="0") {
           // if valid last result exists
@@ -87,7 +87,7 @@ const CalculatorSection = ({ className, handleSuccessfulEvaluation, ...restProps
         }
         else {
           // if there is no valid last result do nothing
-          console.log("CalculatorSection","no valid last result, doing nothing");
+          // console.log("CalculatorSection","no valid last result, doing nothing");
           return;
         }
       }
@@ -107,7 +107,7 @@ const CalculatorSection = ({ className, handleSuccessfulEvaluation, ...restProps
     else {
       // if a non equals button was clicked then amend display text as required
 
-      console.log("CalculatorSection", "Button clicked object value: ", clickedButtonValue, "display text before action:", localDisplayText); 
+      // console.log("CalculatorSection", "Button clicked object value: ", clickedButtonValue, "display text before action:", localDisplayText); 
 
       
       // update display text as per button string action
@@ -127,8 +127,15 @@ const CalculatorSection = ({ className, handleSuccessfulEvaluation, ...restProps
       let btnClassName = "col-" + (e.colWidth===undefined ?  defaultColWidth : e.colWidth);
  
       return (
-        <div className={btnClassName + " " + clsx("btn-container" )}>
-          <button id={e.id} className="btn btn-dark w-100" key={e.id} onClick={handleButtonClick}>
+        <div
+          key={e.id}
+          className={btnClassName + " " + clsx("btn-container")}>
+          <button
+            id={e.id}
+            className="btn btn-dark w-100"
+            key={e.id}
+            onClick={handleButtonClick}
+          >
             {e.value}
           </button>
         </div>
@@ -139,7 +146,7 @@ const CalculatorSection = ({ className, handleSuccessfulEvaluation, ...restProps
   } 
 
               
-  console.log("CalculatorSection", "CalculatorSection: Pre-Render");
+  // console.log("CalculatorSection", "CalculatorSection: Pre-Render");
 
   return (
     
@@ -188,9 +195,7 @@ const CalculatorSection = ({ className, handleSuccessfulEvaluation, ...restProps
 
 CalculatorSection.propTypes = {
   children: PropTypes.any,
-  className: PropTypes.string,
-  numberButtons: PropTypes.array.isRequired,
-  controlButtons: PropTypes.array.isRequired
+  className: PropTypes.string, 
 };
 
 CalculatorSection.defaultProps = {

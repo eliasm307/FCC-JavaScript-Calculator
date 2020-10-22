@@ -1,3 +1,6 @@
+import ReplaceTrailingOperator from "../Utils/ReplaceTrailingOperator"
+
+
 export const controlButtons = [
   {
     id: "delete",
@@ -5,8 +8,9 @@ export const controlButtons = [
     value: "Delete",
     stringAction: (str) => {
 
-      let s = str;
-
+      let s = str.trim();
+  
+      
       // no change if it is initial zero value
       if(s==="0") return s; 
       
@@ -31,25 +35,33 @@ export const controlButtons = [
     id: "add",
     keyCode: 0,
     value: "+",
-    stringAction: (str) => str + " + "
+    stringAction: (str) => ReplaceTrailingOperator(str) + " + "
   }, 
   {
     id: "subtract",
     keyCode: 0,
     value: "-",
-    stringAction: (str) => str + " - " 
+    stringAction: (str) => {
+      let s = str.trim();
+    
+      // do not repeat negative signs
+
+      if (/-$/.test(s)) return str;
+      
+      return str + " - ";
+    }
   }, 
   {
     id: "divide",
     keyCode: 0,
     value: "/",
-    stringAction: (str) => str + " / "     
+    stringAction: (str) => ReplaceTrailingOperator(str) + " / "     
   }, 
   {
     id: "multiply",
     keyCode: 0,
     value: "x",
-    stringAction: (str) => str + " x "     
+    stringAction: (str) => ReplaceTrailingOperator(str) + " x "     
   },   
   {
     id: "left-bracket",
@@ -62,7 +74,7 @@ export const controlButtons = [
     id: "right-bracket",
     keyCode: 0,
     value: ")",
-    stringAction: (str) => str + " ) ",
+    stringAction: (str) => ReplaceTrailingOperator(str) + " ) ",
     colWidth: 4  
   },
   {

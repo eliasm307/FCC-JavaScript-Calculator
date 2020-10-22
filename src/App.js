@@ -50,20 +50,20 @@ class App extends React.Component {
   handleSuccessfulEvaluation({expression, result}) {
     console.log("APP", "handling successufl evaluation of expression and result:", {expression, result });
 
-    console.log("BEOFRE this.state.arrayHistory", this.state.arrayHistory);
+    // console.log("BEOFRE this.state.arrayHistory", this.state.arrayHistory);
 
     this.setState({
       arrayHistory: [{expression, result}, ...this.state.arrayHistory]
     });
  
 
-    console.log("AFTER this.state.arrayHistory", this.state.arrayHistory);
+    // console.log("AFTER this.state.arrayHistory", this.state.arrayHistory);
 
     
   }
 
   render() {
-    console.log(date.toLocaleString(), "App pre-render, this.state.arrayHistory", this.state.arrayHistory);
+    // console.log(date.toLocaleString(), "App pre-render, this.state.arrayHistory", this.state.arrayHistory);
 
 
     return (

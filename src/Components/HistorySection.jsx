@@ -12,7 +12,7 @@ const HistorySection = ({ arrayHistory, className, ...restProps }) => {
   // let numberButtonsJSX = React.useRef([]) 
   // let controlButtonsJSX = React.useRef([]) 
 
-  console.log("HistorySection, arrayHistory:", arrayHistory );
+  // console.log("HistorySection, arrayHistory:", arrayHistory );
 
   const [numberButtonsJSX, setNumberButtonsJSX] = React.useState([]);
   const [controlButtonsJSX, setControlButtonsJSX] = React.useState([]);
@@ -30,7 +30,7 @@ const HistorySection = ({ arrayHistory, className, ...restProps }) => {
 
 
               
-  console.log("HistorySection: Pre-Render");
+  // console.log("HistorySection: Pre-Render");
   return (
     
     <section id="history-section" className="col"> 
@@ -52,8 +52,7 @@ const HistorySection = ({ arrayHistory, className, ...restProps }) => {
 HistorySection.propTypes = {
   children: PropTypes.any,
   className: PropTypes.string,
-  arrayHistory: PropTypes.array.isRequired,
-  controlButtons: PropTypes.array.isRequired
+  arrayHistory: PropTypes.array.isRequired, 
 };
 
 HistorySection.defaultProps = {

@@ -5,5 +5,5 @@
   "files.insertFinalNewline": true,
   "files.hotExit": "onExitAndWindowClose",
   "breadcrumbs.enabled": true,
-  "search.showLineNumbers": true
+  "search.showLineNumbers": true, 
 }

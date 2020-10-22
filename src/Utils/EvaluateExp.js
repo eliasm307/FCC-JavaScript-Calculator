@@ -23,7 +23,7 @@ export default function EvaluateExp(sExpression, precision=mathDefaultPrecision)
     return isNumeric( sResult) ? sResult : "NaN" ; 
   } 
   catch(e) {
-    console.log("MathJS error:", e);
+    // console.log("MathJS error:", e);
     return "Invalid expression";
   }
 

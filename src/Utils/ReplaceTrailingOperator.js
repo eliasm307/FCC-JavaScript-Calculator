@@ -2,14 +2,7 @@ export default function ReplaceTrailingOperator(sExpression="") {
 
   console.log("ReplaceTrailingOperator for '" + sExpression + "'");
 
-  let s = sExpression;
-
-  if (typeof sExpression !== "string") {
-    // console.log("--------ReplaceTrailingOperator, ERROR expression is not a string:", sExpression);
-    return sExpression;
-  }
-  
-  s = s.trim();
+  let s = sExpression.toString().trim();  
 
   // loop and remove all operators that cant be chained naturally (note '-' needs to be escaped)
   while (/[/*\-+x(]$/.test(s)) {
@@ -23,9 +16,7 @@ export default function ReplaceTrailingOperator(sExpression="") {
   };
 
   console.log("ReplaceTrailingOperator", "all trailing operators removed from: '" + sExpression + "' resulting expression is '" + s + "'")
-
  
-
   return s;
   
 }

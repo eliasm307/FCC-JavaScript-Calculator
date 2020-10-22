@@ -1,23 +1,16 @@
 import React from "react";
-import PropTypes from "prop-types";
-import clsx from "clsx";
+import PropTypes from "prop-types"; 
 
 import { Row, Col } from "react-bootstrap"; 
 
 import "./HistorySection.scss";
 
 const HistorySection = ({ arrayHistory, className, ...restProps }) => {
-  // console.log("HistorySection: Start");
+  // console.log("HistorySection: Start"); 
 
-  // let numberButtonsJSX = React.useRef([]) 
-  // let controlButtonsJSX = React.useRef([]) 
+  // console.log("HistorySection, arrayHistory:", arrayHistory ); 
 
-  // console.log("HistorySection, arrayHistory:", arrayHistory );
-
-  const [numberButtonsJSX, setNumberButtonsJSX] = React.useState([]);
-  const [controlButtonsJSX, setControlButtonsJSX] = React.useState([]);
-
-  const historyJSX = arrayHistory.map(({expression, result}, i) => {
+  const historyListJSX = arrayHistory.map(({expression, result}, i) => {
 
     return(
       <Row as="li" noGutters key={expression+result+i}>
@@ -27,9 +20,7 @@ const HistorySection = ({ arrayHistory, className, ...restProps }) => {
     );
 
   });
-
-
-              
+ 
   // console.log("HistorySection: Pre-Render");
   return (
     
@@ -40,7 +31,7 @@ const HistorySection = ({ arrayHistory, className, ...restProps }) => {
 
       <Row noGutters>
         <Col as="ul" id="container-history"> 
-          {historyJSX} 
+          {historyListJSX} 
         </Col>
       </Row>
   

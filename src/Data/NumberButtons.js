@@ -1,3 +1,5 @@
+// below is the configuration for all the number input button objects which is used in logic and rendering 
+
 export const numberButtons =
   [ 
     {

@@ -3,8 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import CalculatorSection from "./Components/CalculatorSection";
 import HistorySection from "./Components/HistorySection";
 
-import "./global-styles.scss";
-// import evaluateExp from "./Utils";
+import "./global-styles.scss"; 
 
 /*
 TODO
@@ -33,10 +32,7 @@ class App extends React.Component {
     this.state = {
       currentExpression: "",
       currentResult: "",
-      arrayHistory: [
-        generateHistoryItem(),
-        generateHistoryItem(),
-        generateHistoryItem(),
+      arrayHistory: [ 
       ]
     }
  
@@ -44,35 +40,23 @@ class App extends React.Component {
 
   }
 
-  
- 
-  
   handleSuccessfulEvaluation({expression, result}) {
-    console.log("APP", "handling successufl evaluation of expression and result:", {expression, result });
-
-    // console.log("BEOFRE this.state.arrayHistory", this.state.arrayHistory);
-
+    console.log("APP", "handling successufl evaluation of expression and result:", { expression, result }); 
+    
     this.setState({
       arrayHistory: [{expression, result}, ...this.state.arrayHistory]
-    });
- 
-
-    // console.log("AFTER this.state.arrayHistory", this.state.arrayHistory);
-
-    
+    }); 
   }
 
   render() {
     // console.log(date.toLocaleString(), "App pre-render, this.state.arrayHistory", this.state.arrayHistory);
-
-
+ 
     return (
       <>
         <Container fluid className="App">
           
           <h1>Javascript Calculator</h1> 
-          
-  
+           
           <Row noGutters>
 
             <CalculatorSection
@@ -84,8 +68,7 @@ class App extends React.Component {
             />
 
           </Row>
-          
-  
+           
         </Container>
       </>
     );
@@ -93,6 +76,5 @@ class App extends React.Component {
   }
 
 }
-
-
+ 
 export default App

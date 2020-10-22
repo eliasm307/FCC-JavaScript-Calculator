@@ -1,16 +1,16 @@
 import ReplaceTrailingOperator from "../Utils/ReplaceTrailingOperator"
 
+// below is the configuration for all the control button objects which is used in logic and rendering 
 
 export const controlButtons = [
   {
     id: "delete",
     keyCode: 0,
     value: "Delete",
-    stringAction: (str) => {
+    stringAction: (str) => { 
 
-      let s = str.trim();
-  
-      
+      let s = str.toString().trim();
+   
       // no change if it is initial zero value
       if(s==="0") return s; 
       
@@ -44,8 +44,7 @@ export const controlButtons = [
     stringAction: (str) => {
       let s = str.trim();
     
-      // do not repeat negative signs
-
+      // do not repeat negative signs 
       if (/-$/.test(s)) return str;
       
       return str + " - ";

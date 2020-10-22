@@ -27,7 +27,7 @@ $standardSpacing: 10px;
 }
 
 body {
-  background-color: rgba(50,50,50,1);
+  background-color: rgb(29, 29, 29);
   // padding: 5%;
   
 }
@@ -39,24 +39,20 @@ body {
   
   color: white; 
 
+  h1 {
+    padding-top: 10px;
+  }
   
   section {
     border: 1px solid gray;
-    margin: 10px 0px;
-    padding: 10px;
+    margin: $standardSpacing $standardSpacing;
+    padding: $standardSpacing;
     border-radius: 3px; 
-  }
-   
- 
-    // only update if valid expression is not required or if a valid expression is provided when required
+  } 
 
 }
 
 .display-none {
   display: none;
 }
-
-
-
-
-    // only update if valid expression is not required or if a valid expression is provided when required
+ 

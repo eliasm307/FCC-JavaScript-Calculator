@@ -11,7 +11,7 @@ import { isNumeric } from "mathjs";
 import { numberButtons } from "../Data/NumberButtons";
 import { controlButtons } from "../Data/ControlButtons";
 
-const CalculatorSection = ({ className, handleSuccessfulEvaluation, ...restProps }) => {
+const CalculatorSection = ({ className, handleSuccessfulEvaluation }) => {
   // console.log("CalculatorSection: Start"); 
   
   const [displayText, setDisplayText] = React.useState("0");
@@ -144,9 +144,8 @@ const CalculatorSection = ({ className, handleSuccessfulEvaluation, ...restProps
     });
     
   } 
-
-              
-  // console.log("CalculatorSection", "CalculatorSection: Pre-Render");
+ 
+  // rendering a dummy p element for display as FCC tests didnt work well with textarea
 
   return (
     

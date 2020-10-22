@@ -1,18 +1,13 @@
 $standardSpacing: 10px;
 
-#history-section {
-
-  
-  
+#history-section { 
 
   h2 {
     padding-left: $standardSpacing;
   }
 
-  #container-history {
-    // padding: 0;
-    text-align: left;
-
+  #container-history { 
+    text-align: left; 
     max-height: 72vh;
     overflow-y: auto;
     

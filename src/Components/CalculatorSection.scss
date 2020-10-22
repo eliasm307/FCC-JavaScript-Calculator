@@ -10,17 +10,14 @@ $standardSpacing: 10px;
   #container-control-buttons,
   #container-display {
     
-       padding: $standardSpacing $standardSpacing;    
-      // margin: 0px;
+    padding: $standardSpacing $standardSpacing;    
+  // margin: 0px;
     
   }
 
   #container-display {
     border: 0px solid red;
-    text-align: left;
-    .col {
-    
-    }
+    text-align: left; 
 
     #textarea-display {
       background-color: transparent;
@@ -37,8 +34,7 @@ $standardSpacing: 10px;
     #preview { 
       margin: 0;
     }
-    
-
+     
   }
 
   .btn {
